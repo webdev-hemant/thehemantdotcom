@@ -1,0 +1,21 @@
+@import "../styles/mixins.module";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  ul {
+    margin-top: 0.8rem;
+    width: 20rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    li {
+    }
+  }
+  button {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}
