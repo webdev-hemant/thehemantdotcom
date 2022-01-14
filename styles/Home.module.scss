@@ -1,5 +1,6 @@
 @import "./mixins.module.scss";
 
-.colr {
-  background-color: $clr_1_300;
+.header {
+  height: 100vh;
+  background-color: rgba($clr_5, 0.7);
 }
