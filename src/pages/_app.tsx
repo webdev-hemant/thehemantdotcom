@@ -1,12 +1,19 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import NavbarWrapper from "componets/navbar/NavbarWrapper";
+import Head from "next/head";
+import devicon from "images/devicon.jpg";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NavbarWrapper>
-      <Component {...pageProps} />
-    </NavbarWrapper>
+    <>
+      <Head>
+        <link rel="shortcut icon" href="/devicon.jpg" type="image/x-icon" />
+      </Head>
+      <NavbarWrapper>
+        <Component {...pageProps} />
+      </NavbarWrapper>
+    </>
   );
 }
 
