@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { InavbarRoutes, navbarRoutes } from "./NavbarRoutes";
 import hamburger from "images/hamburger.png";
 import closeIcon from "images/close.png";
+import javasriptIcon from "images/javascript.png";
 import Image from "next/image";
 import MobileNavbar from "./MobileNavbar";
 import styles from "./navbar.module.scss";
@@ -19,6 +20,14 @@ const NavbarWrapper = ({ children }: Iprops) => {
     <>
       <nav className={styles.nav_container}>
         <div className={styles.mobileView}>
+          <div className={styles.javascriptImg}>
+            <Image
+              src={javasriptIcon}
+              width={50}
+              height={50}
+              alt="javascript"
+            />
+          </div>
           <div onClick={() => setIsOpen(true)} className={styles.hamIcon}>
             <Image src={hamburger} width={24} height={24} alt="" />
           </div>
