@@ -1,5 +1,8 @@
 @import "../../styles/variables.scss";
 
+.mainContainer {
+  padding: 2rem 4rem;
+}
 .nav_container {
   .desktopView {
     display: flex;
@@ -21,7 +24,7 @@
       font-size: 1.125rem;
       font-weight: 400;
       letter-spacing: -0.3;
-
+      border-radius: 10px;
       &:last-child {
         width: 8.5rem;
       }
@@ -87,6 +90,7 @@
       border-radius: 10px;
       a {
         color: #ffecd1;
+        width: 100%;
       }
     }
     .active {
