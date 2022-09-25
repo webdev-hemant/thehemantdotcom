@@ -1,7 +1,15 @@
+import Head from "next/head";
 import React from "react";
 
 const experience = () => {
-  return <div>experience</div>;
+  return (
+    <>
+      <Head>
+        <title>Experience</title>
+      </Head>
+      <div>experience</div>
+    </>
+  );
 };
 
 export default experience;

@@ -1,37 +1,84 @@
 @import "../../styles/variables.scss";
 
 .nav_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  height: 3.5rem;
-  margin: 1rem 0;
-  a {
-    width: 7rem;
-    height: 100%;
+  .desktopView {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $clr_1;
-    font-size: 1.125rem;
-    font-weight: 400;
-    letter-spacing: -0.3;
-
-    &:last-child {
-      width: 8.5rem;
+    gap: 0.5rem;
+    height: 3.5rem;
+    margin: 1rem 0;
+    @media screen and (max-width: 768px) {
+      display: none;
     }
-    &:hover {
+    a {
+      width: 7rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $clr_1;
+      font-size: 1.125rem;
+      font-weight: 400;
+      letter-spacing: -0.3;
+
+      &:last-child {
+        width: 8.5rem;
+      }
+      &:hover {
+        background-color: $clr_2;
+      }
+    }
+    .active {
       background-color: $clr_2;
+      text-decoration: underline 1.5px solid $clr_1;
+      text-underline-offset: 0.4rem;
+      transition: all 0.1s linear;
+      &:hover {
+        text-underline-offset: 0.5rem;
+      }
     }
   }
-  .active {
-    background-color: $clr_2;
-    text-decoration: underline 1.5px solid $clr_1;
-    text-underline-offset: 0.4rem;
-    transition: all 0.1s linear;
-    &:hover {
-      text-underline-offset: 0.5rem;
+  .mobileView {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @media screen and (min-width: 769px) {
+      display: none;
     }
+    .hamIcon {
+      padding: 1rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.mobile_nav_wrapper {
+  overflow: hidden;
+  width: 70vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999999999999999;
+  background-color: skyblue;
+  transition: all 0.3s linear;
+  animation: myTransition 0.8s 1;
+
+  @keyframes myTransition {
+    0% {
+      right: -100%;
+    }
+    100% {
+      right: 0;
+    }
+  }
+  .closeHamIcon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1rem;
+    cursor: pointer;
   }
 }
