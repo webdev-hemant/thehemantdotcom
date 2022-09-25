@@ -19,10 +19,7 @@ const NavbarWrapper = ({ children }: Iprops) => {
     <>
       <nav className={styles.nav_container}>
         <div className={styles.mobileView}>
-          <div
-            onClick={() => setIsOpen((prev) => !prev)}
-            className={styles.hamIcon}
-          >
+          <div onClick={() => setIsOpen(true)} className={styles.hamIcon}>
             <Image src={hamburger} width={24} height={24} />
           </div>
         </div>
@@ -41,13 +38,20 @@ const NavbarWrapper = ({ children }: Iprops) => {
       <main>{children}</main>
       <MobileNavbar open={isOpen}>
         <div className={styles.mobile_nav_wrapper}>
-          <div
-            onClick={() => setIsOpen((prev) => !prev)}
-            className={styles.closeHamIcon}
-          >
+          <div onClick={() => setIsOpen(false)} className={styles.closeHamIcon}>
             <Image src={closeIcon} width={24} height={24} />
           </div>
-          <h2>this one nav</h2>
+          <ul className={styles.mobileNavListContainer}>
+            {navbarRoutes.map((item: InavbarRoutes) => (
+              <li
+                className={`${router.pathname === item.route && styles.active}`}
+              >
+                <Link key={item.name} href={item.route}>
+                  <a>{item.name}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </MobileNavbar>
     </>
