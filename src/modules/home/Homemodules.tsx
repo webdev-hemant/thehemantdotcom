@@ -1,5 +1,5 @@
+import SocialMediaComponents from "componets/socialmedia/SocialMediaComponents";
 import Primarysvg from "images/primarysvg";
-// import Image from "next/image";
 import React from "react";
 import styles from "./homemodule.module.scss";
 
@@ -18,6 +18,7 @@ const Homemodules = () => {
           products which develop sustainable and scalable social and technical
           systems to create impact.
         </p>
+        <SocialMediaComponents />
       </div>
       <div className={styles.imageContainer}>
         <Primarysvg />
