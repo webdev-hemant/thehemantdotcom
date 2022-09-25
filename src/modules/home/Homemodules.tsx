@@ -1,9 +1,12 @@
-import React from 'react'
-import styles from './homemodule.module.scss'
+import Primarysvg from "images/primarysvg";
+import React from "react";
+import styles from "./homemodule.module.scss";
 const Homemodules = () => {
-    return (
-        <div>Homemodules</div>
-    )
-}
+  return (
+    <div>
+      <Primarysvg />
+    </div>
+  );
+};
 
-export default Homemodules
+export default Homemodules;
