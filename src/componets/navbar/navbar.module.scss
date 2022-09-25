@@ -55,30 +55,29 @@
 }
 
 .mobile_nav_wrapper {
-  overflow: hidden;
   width: 70vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 9999999999999999;
   background-color: skyblue;
-  transition: all 0.3s linear;
-  animation: myTransition 0.8s 1;
+  animation: myTransition 0.5s;
 
-  @keyframes myTransition {
-    0% {
-      right: -100%;
-    }
-    100% {
-      right: 0;
-    }
-  }
   .closeHamIcon {
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
     padding: 1rem;
     cursor: pointer;
+  }
+}
+
+@keyframes myTransition {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
   }
 }
