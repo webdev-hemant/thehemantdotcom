@@ -6,7 +6,7 @@ const index = () => {
     <div className="Home ">
       <header className={style.header}>
         <NavBar />
-        <Intro />
+        {/* <Intro /> */}
       </header>
     </div>
   );
