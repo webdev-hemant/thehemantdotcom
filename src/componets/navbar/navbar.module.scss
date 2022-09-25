@@ -2,6 +2,9 @@
 
 .mainContainer {
   padding: 2rem 4rem;
+  @media screen and (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 }
 .nav_container {
   .desktopView {
@@ -46,9 +49,12 @@
     height: 3.5rem;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     @media screen and (min-width: 769px) {
       display: none;
+    }
+    .javascriptImg {
+      margin: 1rem 0 0 1rem;
     }
     .hamIcon {
       padding: 1rem;
