@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
           <Main />
           <div id="myportal" />
           <div id="mymodal" />
-          <div id="mobileNavbar" style={{ overflow: "hidden" }} />
+          <div id="mobileNavbar" />
           <NextScript />
         </body>
       </Html>

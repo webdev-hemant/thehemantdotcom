@@ -1,10 +1,11 @@
-import Primarysvg from "images/primarysvg";
+// import Primarysvg from "images/primarysvg";
 import React from "react";
 // import styles from "./homemodule.module.scss";
 const Homemodules = () => {
   return (
     <div>
-      <Primarysvg />
+      <h1>Home directory</h1>
+      {/* <Primarysvg /> */}
     </div>
   );
 };
