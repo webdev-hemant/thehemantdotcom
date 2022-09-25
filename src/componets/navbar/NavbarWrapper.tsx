@@ -13,7 +13,7 @@ const NavbarWrapper = ({ children }: Iprops) => {
     <>
       <nav className={styles.nav_container}>
         {navbarRoutes.map((item: InavbarRoutes) => (
-          <Link href={item.route}>
+          <Link key={item.name} href={item.route}>
             <a className={`${router.pathname === item.route && styles.active}`}>
               {item.name}
             </a>
