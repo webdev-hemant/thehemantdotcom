@@ -35,7 +35,7 @@ const NavbarWrapper = ({ children }: Iprops) => {
           ))}
         </div>
       </nav>
-      <main>{children}</main>
+      <main className={styles.mainContainer}>{children}</main>
       <MobileNavbar open={isOpen}>
         <div className={styles.mobile_nav_wrapper}>
           <div onClick={() => setIsOpen(false)} className={styles.closeHamIcon}>
