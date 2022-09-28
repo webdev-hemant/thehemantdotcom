@@ -1,5 +1,6 @@
 import SocialMediaComponents from "componets/socialmedia/SocialMediaComponents";
 import Primarysvg from "images/primarysvg";
+import Link from "next/link";
 import React from "react";
 import styles from "./homemodule.module.scss";
 
@@ -19,6 +20,13 @@ const Homemodules = () => {
           systems to create impact.
         </p>
         <SocialMediaComponents />
+        <Link href="/contact_me">
+          <a>
+            <button className={styles.contactMeButton} type="button">
+              Contact Me
+            </button>
+          </a>
+        </Link>
       </div>
       <div className={styles.imageContainer}>
         <Primarysvg />

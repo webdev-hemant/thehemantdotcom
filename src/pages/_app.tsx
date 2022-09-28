@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import NavbarWrapper from "componets/navbar/NavbarWrapper";
 import Head from "next/head";
-import devicon from "images/devicon.jpg";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

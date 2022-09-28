@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Home - Portfolio</title>
+        <title>Hemant's - Portfolio</title>
       </Head>
       <Homemodules />
     </>
