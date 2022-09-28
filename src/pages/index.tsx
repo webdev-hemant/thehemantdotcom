@@ -1,4 +1,4 @@
-import Homemodules from "modules/home/Homemodules";
+import Homemodule from "modules/home/HomeModule";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -6,9 +6,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Home - Portfolio</title>
+        <title>Hemant&apos;s - Portfolio</title>
       </Head>
-      <Homemodules />
+      <Homemodule />
     </>
   );
 };
