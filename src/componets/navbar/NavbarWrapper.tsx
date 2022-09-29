@@ -45,6 +45,9 @@ const NavbarWrapper = ({ children }: Iprops) => {
         </div>
       </nav>
       <main className={styles.mainContainer}>{children}</main>
+      <footer className={styles.footer}>
+        copy right - Hemant Jadhav since 2019 - {new Date().getFullYear()}
+      </footer>
       <MobileNavbar open={isOpen}>
         <div className={styles.mobile_nav_wrapper}>
           <div onClick={() => setIsOpen(false)} className={styles.closeHamIcon}>
