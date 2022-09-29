@@ -54,13 +54,11 @@ const SecondHomeSection = () => {
           <h2 className={styles.subheadingWhatIdo}>Full Stack Development</h2>
           {fullStackPoints.map((paragraph: string) => {
             return (
-              <div className={styles.starParagraphWrapper}>
+              <div key={paragraph} className={styles.starParagraphWrapper}>
                 <div className={styles.starIconContainer}>
                   <StarSvg />
                 </div>
-                <p className={styles.subParagraph} key={paragraph}>
-                  {paragraph}
-                </p>
+                <p className={styles.subParagraph}>{paragraph}</p>
               </div>
             );
           })}
