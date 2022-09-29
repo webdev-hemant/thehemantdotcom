@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import SecondSvg from "images/SecondSvg";
-import Image from "next/image";
-import StarIcon from "images/star.png";
 import styles from "./secondHomeSection.module.scss";
+import StarSvg from "images/StarSvg";
 
 const SecondHomeSection = () => {
   const fullStackPoints: string[] = [
@@ -55,16 +54,14 @@ const SecondHomeSection = () => {
           <h2 className={styles.subheadingWhatIdo}>Full Stack Development</h2>
           {fullStackPoints.map((paragraph: string) => {
             return (
-              <p className={styles.subParagraph} key={paragraph}>
-                <Image
-                  src={StarIcon}
-                  width={32}
-                  height={28}
-                  alt=""
-                  layout="fixed"
-                />
-                <span style={{ marginLeft: "8px" }}>{paragraph}</span>
-              </p>
+              <div className={styles.starParagraphWrapper}>
+                <div className={styles.starIconContainer}>
+                  <StarSvg />
+                </div>
+                <p className={styles.subParagraph} key={paragraph}>
+                  {paragraph}
+                </p>
+              </div>
             );
           })}
         </motion.div>
