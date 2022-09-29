@@ -25,8 +25,10 @@ const FirstHomeSection = () => {
           </h1>
         </div>
         <p className={styles.introParagraph}>
-          I solve customers problem by providing software services and follow
-          only one strategy - Be so good at it that they can&apos;t ignore you!
+          I am working professional software Engineer who solve customers
+          problem by providing software services also I&apos;m equipped with the
+          right tools to deliver fast and resilient software&apos;s.
+          <br /> — performance and scalabilty are priorities on my radar.
         </p>
         <SocialMediaComponents />
         <Link href="/contact_me">
