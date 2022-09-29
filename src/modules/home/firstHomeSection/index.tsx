@@ -26,7 +26,7 @@ const FirstHomeSection = () => {
         </div>
         <p className={styles.introParagraph}>
           I solve customers problem by giving software services and follow only
-          one strategy - Be so good at it that they can't ignore you!
+          one strategy - Be so good at it that they can&apos;t ignore you!
         </p>
         <SocialMediaComponents />
         <Link href="/contact_me">
