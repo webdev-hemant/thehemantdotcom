@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import ContactMe from "modules/contactme/ContactMe";
 
 const contact_me = () => {
   return (
@@ -7,7 +7,7 @@ const contact_me = () => {
       <Head>
         <title>Contact Me</title>
       </Head>
-      <div>contact_me</div>
+      <ContactMe />
     </>
   );
 };
