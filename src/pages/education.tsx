@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import Education from "modules/education/Education";
 
 const education = () => {
   return (
@@ -7,7 +7,7 @@ const education = () => {
       <Head>
         <title>Education</title>
       </Head>
-      <div>Education</div>
+      <Education />
     </>
   );
 };

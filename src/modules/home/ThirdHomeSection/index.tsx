@@ -6,7 +6,7 @@ const ThirdHomeSection = () => {
       <div className={styles.imageContainer}>
         <div className={styles.textContainer}>
           <h2 className={styles.textHeading}>
-            &quot;Being an{" "}
+            &quot;Being a{" "}
             <i
               style={{
                 margin: "0 0.6rem 0 0.2rem",

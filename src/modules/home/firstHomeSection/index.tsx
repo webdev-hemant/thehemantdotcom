@@ -14,10 +14,13 @@ const FirstHomeSection = () => {
           </h1>
         </div>
         <p className={styles.introParagraph}>
-          I am working professional software Engineer who solve customers
+          I am a working professional software Engineer who solves
+          customers&apos; problems by providing software services also I&apos;m
+          equipped with the right tools to deliver fast and resilient software.
+          {/* I am working professional software Engineer who solve customers
           problem by providing software services also I&apos;m equipped with the
-          right tools to deliver fast and resilient software&apos;s.
-          <br /> — performance and scalabilty are priorities on my radar.
+          right tools to deliver fast and resilient software&apos;s. */}
+          <br /> — performance and scalability are priorities on my radar.
         </p>
         <SocialMediaComponents />
         <Link href="/contact_me">
