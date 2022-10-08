@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import SecondSvg from "images/SecondSvg";
 import StarSvg from "images/StarSvg";
 import HtmlSvg from "images/HtmlSvg";
@@ -19,8 +18,8 @@ import MongodbSvg from "images/MongodbSvg";
 import MysqlSvg from "images/MysqlSvg";
 import AwsSvg from "images/AwsSvg";
 import AzureSvg from "images/AzureSvg";
-import styles from "./secondHomeSection.module.scss";
 import VercelSvg from "images/VercelSvg";
+import styles from "./secondHomeSection.module.scss";
 
 const SecondHomeSection = () => {
   const technologySvgArray: JSX.Element[] = [
@@ -54,44 +53,12 @@ const SecondHomeSection = () => {
 
   return (
     <section className={styles.container}>
-      <motion.h2
-        initial={{ y: 50, opacity: 0 }}
-        animate={{
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 1,
-        }}
-        className={styles.whatIDoHeading}
-      >
-        What I Do?
-      </motion.h2>
+      <h2 className={styles.whatIDoHeading}>What I Do?</h2>
       <div className={styles.myWorkWrapper}>
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{
-            x: 0,
-            opacity: 1,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className={styles.svg_section}
-        >
+        <div className={styles.svg_section}>
           <SecondSvg />
-        </motion.div>
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{
-            x: 0,
-            opacity: 1,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className={styles.myWorkDetails}
-        >
+        </div>
+        <div className={styles.myWorkDetails}>
           <h2 className={styles.subheadingWhatIdo}>Full Stack Development</h2>
           <div className={styles.techIconWrapper}>
             {technologySvgArray.map((icon: JSX.Element, ind: number) => (
@@ -110,7 +77,7 @@ const SecondHomeSection = () => {
               </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
