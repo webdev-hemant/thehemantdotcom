@@ -1,23 +1,12 @@
 import SocialMediaComponents from "componets/socialmedia/SocialMediaComponents";
 import Primarysvg from "images/primarysvg";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import styles from "./firstHomeSection.module.scss";
 
 const FirstHomeSection = () => {
   return (
     <section className={styles.introductionWrapper}>
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{
-          x: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 1,
-        }}
-        className={styles.textIntroContainer}
-      >
+      <div className={styles.textIntroContainer}>
         <div className={styles.headingWrapper}>
           <h1 className={styles.nameHeading}>
             Hemant Jadhav{" "}
@@ -33,31 +22,15 @@ const FirstHomeSection = () => {
         <SocialMediaComponents />
         <Link href="/contact_me">
           <a>
-            <motion.button
-              initial={{ x: "60px" }}
-              animate={{ x: 0 }}
-              transition={{ delay: 0.8, ease: "linear" }}
-              className={styles.contactMeButton}
-              type="button"
-            >
+            <button className={styles.contactMeButton} type="button">
               Contact Me
-            </motion.button>
+            </button>
           </a>
         </Link>
-      </motion.div>
-      <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        animate={{
-          x: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 1,
-        }}
-        className={styles.imageContainer}
-      >
+      </div>
+      <div className={styles.imageContainer}>
         <Primarysvg />
-      </motion.div>
+      </div>
     </section>
   );
 };
