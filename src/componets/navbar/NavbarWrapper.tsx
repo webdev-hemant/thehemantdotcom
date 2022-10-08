@@ -22,7 +22,10 @@ const NavbarWrapper = ({ children }: Iprops) => {
     <>
       <nav className={styles.nav_container}>
         <div className={styles.mobileView}>
-          <div className={styles.javascriptImg}>
+          <div
+            onClick={() => router.push("/")}
+            className={styles.javascriptImg}
+          >
             <Image
               src={javasriptIcon}
               width={50}
@@ -30,7 +33,7 @@ const NavbarWrapper = ({ children }: Iprops) => {
               alt="javascript"
             />
           </div>
-          <div className={styles.codeImage}>
+          <div onClick={() => router.push("/")} className={styles.codeImage}>
             <Image
               src={binarycodeimage}
               layout="fill"
