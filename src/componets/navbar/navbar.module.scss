@@ -13,6 +13,13 @@
   color: rgba($color: $clr_1, $alpha: 0.8);
 }
 .nav_container {
+  padding-bottom: 0.5rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background-color: $clr_6;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   .desktopView {
     display: flex;
     align-items: center;
@@ -63,7 +70,7 @@
       margin: 1rem 0 0 1rem;
     }
     .hamIcon {
-      padding: 1rem;
+      padding: 2rem 1rem 1rem 1rem;
       cursor: pointer;
     }
   }
