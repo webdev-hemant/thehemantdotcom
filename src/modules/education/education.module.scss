@@ -1,8 +1,24 @@
 @import "../../styles/variables.scss";
 
 .educationWrapper {
-  .imgContainer {
-    position: relative;
-    height: 50vh;
+  .colloegInfoContainer {
+    min-height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 70vh;
+    }
+    .imgContainer {
+      position: relative;
+    }
+    .collegeText {
+      display: flex;
+      align-items: center;
+      .clgName {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+    }
   }
 }
