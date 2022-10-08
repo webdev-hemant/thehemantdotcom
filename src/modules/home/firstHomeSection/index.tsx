@@ -6,7 +6,7 @@ import styles from "./firstHomeSection.module.scss";
 
 const FirstHomeSection = () => {
   return (
-    <div className={styles.introductionWrapper}>
+    <section className={styles.introductionWrapper}>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{
@@ -58,7 +58,7 @@ const FirstHomeSection = () => {
       >
         <Primarysvg />
       </motion.div>
-    </div>
+    </section>
   );
 };
 
