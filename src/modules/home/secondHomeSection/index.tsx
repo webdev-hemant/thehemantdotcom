@@ -45,9 +45,9 @@ const SecondHomeSection = () => {
   ];
 
   const fullStackPoints: string[] = [
-    "Building seo friendly resposive website front end using Reactjs or Nextjs-Redux",
+    "Building SEO friendly responsive website front end using Reactjs or Nextjs-Redux",
     "Creating application backend in Nodejs and Nestjs",
-    "Using Mongodb or MySql for database",
+    "Using MongoDB or MySql for database",
     "Hosting app on Aws/Azure/Vercel",
   ];
 
