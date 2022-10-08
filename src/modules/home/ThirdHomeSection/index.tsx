@@ -7,7 +7,12 @@ const ThirdHomeSection = () => {
         <div className={styles.textContainer}>
           <h2 className={styles.textHeading}>
             &quot;Being an{" "}
-            <i style={{ borderBottom: "3px solid white" }}>
+            <i
+              style={{
+                margin: "0 0.6rem 0 0.2rem",
+                borderBottom: "3px solid white",
+              }}
+            >
               FullStack developer
             </i>{" "}
             is the best way to experience super-human power in real life!&quot;
