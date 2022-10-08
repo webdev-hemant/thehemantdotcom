@@ -5,6 +5,8 @@ import { InavbarRoutes, navbarRoutes } from "./NavbarRoutes";
 import hamburger from "images/hamburger.png";
 import closeIcon from "images/close.png";
 import javasriptIcon from "images/javascript.png";
+import binarycodeimage from "images/binarycode.png";
+// import codeImage from "images/codeimage.png";
 import Image from "next/image";
 import MobileNavbar from "./MobileNavbar";
 import styles from "./navbar.module.scss";
@@ -27,6 +29,15 @@ const NavbarWrapper = ({ children }: Iprops) => {
               height={50}
               alt="javascript"
             />
+          </div>
+          <div className={styles.codeImage}>
+            <Image
+              src={binarycodeimage}
+              layout="fill"
+              objectFit="contain"
+              alt=""
+            />
+            {/* <Image src={codeImage} layout="fill" objectFit="contain" alt="" /> */}
           </div>
           <div onClick={() => setIsOpen(true)} className={styles.hamIcon}>
             <Image src={hamburger} width={24} height={24} alt="" />
