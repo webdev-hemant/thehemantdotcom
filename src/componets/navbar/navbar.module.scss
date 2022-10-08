@@ -13,20 +13,23 @@
   color: rgba($color: $clr_1, $alpha: 0.8);
 }
 .nav_container {
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 99999;
   background-color: $clr_6;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  @media screen and (max-width: 768px) {
+    padding-bottom: 0.5rem;
+  }
   .desktopView {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     height: 3.5rem;
-    margin: 1rem 0;
+    // padding: 1rem 0;
     @media screen and (max-width: 768px) {
       display: none;
     }
