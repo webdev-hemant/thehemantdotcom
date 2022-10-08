@@ -11,7 +11,7 @@
   .myWorkWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 90vh;
+    // grid-template-rows: 90vh;
     gap: 1rem;
     @media screen and (max-width: 768px) {
       grid-template-columns: 1fr;

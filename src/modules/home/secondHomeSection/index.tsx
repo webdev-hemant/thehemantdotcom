@@ -53,7 +53,7 @@ const SecondHomeSection = () => {
   ];
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <motion.h2
         initial={{ y: 50, opacity: 0 }}
         animate={{
@@ -112,7 +112,7 @@ const SecondHomeSection = () => {
           })}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
