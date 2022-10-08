@@ -35,6 +35,24 @@
         word-spacing: 4px;
         text-align: center;
       }
+      .inputName {
+        margin-bottom: 1rem;
+        color: #fff;
+        background: transparent;
+        border-radius: 0;
+        &::placeholder {
+          color: #fff;
+        }
+      }
+      .inputEmail {
+        margin-bottom: 1rem;
+        color: #fff;
+        background: transparent;
+        border-radius: 0;
+        &::placeholder {
+          color: #fff;
+        }
+      }
     }
     .imgWrapper {
       background-color: $clr_4;

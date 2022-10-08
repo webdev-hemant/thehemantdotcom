@@ -33,6 +33,7 @@ const ContactMe = () => {
             value={inputState.name}
             name="name"
             placeholder="Please enter your name"
+            inputStyleName={styles.inputName}
           />
           <Input
             type="text"
@@ -40,6 +41,7 @@ const ContactMe = () => {
             value={inputState.email}
             name="email"
             placeholder="Please enter your email"
+            inputStyleName={styles.inputEmail}
           />
         </div>
         <div className={styles.imgWrapper}></div>

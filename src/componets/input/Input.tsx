@@ -5,11 +5,12 @@ import Image from "next/image";
 import styles from "./input.module.scss";
 
 interface Iprops {
-  type: string;
-  value: string;
+  type: React.HTMLInputTypeAttribute;
+  value: string | number | readonly string[] | undefined;
   onChange: (_: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (_: React.FocusEvent<HTMLInputElement>) => void;
   getRef?: (_: React.MutableRefObject<any>) => void;
+  onBlur?: (_: React.FocusEvent<HTMLInputElement, Element>) => void;
   placeholder?: string;
   name?: string;
   required?: boolean;
@@ -20,7 +21,8 @@ interface Iprops {
   divStyle?: React.CSSProperties;
   errorMessage?: string;
   isError?: boolean;
-  onBlur?: (_: React.FocusEvent<HTMLInputElement, Element>) => void;
+  divStyleName?: any;
+  inputStyleName?: any;
 }
 
 const Input = (props: Iprops) => {
@@ -32,6 +34,7 @@ const Input = (props: Iprops) => {
     onChange,
     onFocus,
     getRef,
+    onBlur,
     value,
     maxLength,
     minLength,
@@ -42,7 +45,8 @@ const Input = (props: Iprops) => {
     label = "",
     isError = false,
     errorMessage = "*Please enter valid value",
-    onBlur,
+    divStyleName = "",
+    inputStyleName = "",
     ...rest
   } = props;
 
@@ -51,7 +55,10 @@ const Input = (props: Iprops) => {
   }, [getRef]);
 
   return (
-    <div style={divStyle} className={styles.inputContainer}>
+    <div
+      style={divStyle}
+      className={`${divStyleName} ${styles.inputContainer}`}
+    >
       <label
         onClick={() => inputRef?.current?.focus()}
         className={styles.label}
@@ -70,7 +77,7 @@ const Input = (props: Iprops) => {
         maxLength={maxLength}
         minLength={minLength}
         placeholder={placeholder}
-        className={`${styles.input} ${
+        className={`${inputStyleName} ${styles.input} ${
           type === "password" && styles.paddingForEye
         }`}
         style={inputStyle}
