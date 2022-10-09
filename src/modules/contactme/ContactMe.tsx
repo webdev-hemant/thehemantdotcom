@@ -1,10 +1,13 @@
 import Input from "componets/input/Input";
 import { useState } from "react";
+import contactmeImg from "images/contactme.png";
 import styles from "./contactme.module.scss";
+import Image from "next/image";
 
 interface IinputState {
   name: string;
   email: string;
+  subject: string;
   textArea: string;
 }
 interface IsubmitPosition {
@@ -16,6 +19,7 @@ const ContactMe = () => {
   const [inputState, setInputState] = useState<IinputState>({
     name: "",
     email: "",
+    subject: "",
     textArea: "",
   });
 
@@ -34,7 +38,7 @@ const ContactMe = () => {
 
   const handleMouseEnter = () => {
     setSubmitPosition((prev) => ({
-      positionX: `${prev.state ? "5rem" : "-5rem"}`,
+      positionX: prev.state ? "5rem" : "-5rem",
       state: !prev.state,
     }));
   };
@@ -60,6 +64,14 @@ const ContactMe = () => {
             placeholder="Email"
             inputStyleName={styles.inputEmail}
           />
+          <Input
+            type="text"
+            onChange={handleOnchange}
+            value={inputState.subject}
+            name="subject"
+            placeholder="Subject / App name"
+            inputStyleName={styles.inputSubject}
+          />
           <div className={styles.submitWrapper}>
             <button
               style={{ transform: `translateX(${submitPosition.positionX})` }}
@@ -69,7 +81,9 @@ const ContactMe = () => {
             </button>
           </div>
         </div>
-        <div className={styles.imgWrapper}></div>
+        <div className={styles.imgWrapper}>
+          <Image src={contactmeImg} layout="fill" objectFit="contain" alt="" />
+        </div>
       </div>
     </div>
   );

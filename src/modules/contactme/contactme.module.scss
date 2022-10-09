@@ -53,6 +53,15 @@
           color: #fff;
         }
       }
+      .inputSubject{
+        margin-bottom: 1rem;
+        color: #fff;
+        background: transparent;
+        border-radius: 0;
+        &::placeholder {
+          color: #fff;
+        }
+      }
       .submitWrapper{
         display: flex;
         align-items: center;
@@ -67,6 +76,7 @@
     }
     .imgWrapper {
       background-color: $clr_4;
+      position: relative;
       @media screen and (max-width: 768px) {
         grid-area: 1;
       }
