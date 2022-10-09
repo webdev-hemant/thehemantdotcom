@@ -46,13 +46,20 @@ const ContactMe = () => {
       ...prev,
       [name]: value,
     }));
+    isEverythingOkay &&
+      setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
   };
 
   const handleMouseEnter = () => {
-    setSubmitPosition((prev) => ({
-      positionX: prev.state ? "5rem" : "-5rem",
-      state: !prev.state,
-    }));
+    if (isEverythingOkay) {
+      setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
+      console.log("submit clicked");
+    } else {
+      setSubmitPosition((prev) => ({
+        positionX: prev.state ? "5rem" : "-5rem",
+        state: !prev.state,
+      }));
+    }
   };
 
   return (
@@ -67,6 +74,7 @@ const ContactMe = () => {
             name="name"
             placeholder="Name"
             inputStyleName={styles.inputName}
+            isError={validateHook.nameError}
           />
           <Input
             type="text"
@@ -75,6 +83,7 @@ const ContactMe = () => {
             name="email"
             placeholder="Email"
             inputStyleName={styles.inputEmail}
+            isError={validateHook.emailError}
           />
           <Input
             type="text"
@@ -83,6 +92,7 @@ const ContactMe = () => {
             name="subject"
             placeholder="Subject / App name"
             inputStyleName={styles.inputSubject}
+            isError={validateHook.subjectError}
           />
           <TextArea
             onChange={handleOnchange}
@@ -90,6 +100,7 @@ const ContactMe = () => {
             name="textArea"
             placeholder="Enter description"
             textAreaStyleName={styles.inputSubject}
+            isError={validateHook.textAreaError}
           />
           <div className={styles.submitWrapper}>
             <button
