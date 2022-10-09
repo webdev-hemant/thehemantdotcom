@@ -3,6 +3,7 @@ import { useState } from "react";
 import contactmeImg from "images/contactme.png";
 import styles from "./contactme.module.scss";
 import Image from "next/image";
+import TextArea from "componets/textarea/TextArea";
 
 interface IinputState {
   name: string;
@@ -28,7 +29,11 @@ const ContactMe = () => {
     positionX: "0",
   });
 
-  const handleOnchange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnchange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target;
     setInputState((prev) => ({
       ...prev,
@@ -71,6 +76,13 @@ const ContactMe = () => {
             name="subject"
             placeholder="Subject / App name"
             inputStyleName={styles.inputSubject}
+          />
+          <TextArea
+            onChange={handleOnchange}
+            value={inputState.textArea}
+            name="textArea"
+            placeholder="Enter description"
+            textAreaStyleName={styles.inputSubject}
           />
           <div className={styles.submitWrapper}>
             <button
