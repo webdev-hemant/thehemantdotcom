@@ -1,7 +1,7 @@
 import Head from "next/head";
 import ContactMe from "modules/contactme/ContactMe";
 
-const contact_me = () => {
+const Contact_me = () => {
   return (
     <>
       <Head>
@@ -12,4 +12,4 @@ const contact_me = () => {
   );
 };
 
-export default contact_me;
+export default Contact_me;

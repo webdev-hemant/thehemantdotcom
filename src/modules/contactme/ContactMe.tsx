@@ -81,7 +81,7 @@ const ContactMe = () => {
         }
       );
       const data = await jsonData.json();
-      console.log(data);
+      console.log("api response:", data);
     } catch (error) {
       console.log(error);
     }
@@ -89,6 +89,7 @@ const ContactMe = () => {
 
   const onSubmit = () => {
     if (isEverythingOkay) {
+      console.log(JSON.stringify(inputState));
       postData();
       console.log("submit clicked");
     }

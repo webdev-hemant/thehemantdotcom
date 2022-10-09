@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Education from "modules/education/Education";
 
-const education = () => {
+const EducationRoute = () => {
   return (
     <>
       <Head>
@@ -12,4 +12,4 @@ const education = () => {
   );
 };
 
-export default education;
+export default EducationRoute;

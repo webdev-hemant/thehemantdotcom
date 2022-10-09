@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 
-const experience = () => {
+const Experience = () => {
   return (
     <>
       <Head>
@@ -12,4 +12,4 @@ const experience = () => {
   );
 };
 
-export default experience;
+export default Experience;
