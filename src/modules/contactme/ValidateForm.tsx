@@ -24,7 +24,7 @@ const ValidateForm = (inputState: IinputState) => {
   const validate = ({ name, value }: IvalidateForm): void => {
     switch (name) {
       case "name":
-        setState((prev) => ({ ...prev, nameError: !(value.length >= 3) }));
+        setState((prev) => ({ ...prev, nameError: value.length < 3 }));
         break;
       case "email":
         setState((prev) => ({
@@ -33,10 +33,10 @@ const ValidateForm = (inputState: IinputState) => {
         }));
         break;
       case "subject":
-        setState((prev) => ({ ...prev, subjectError: !(value.length >= 3) }));
+        setState((prev) => ({ ...prev, subjectError: value.length < 3 }));
         break;
       case "textArea":
-        setState((prev) => ({ ...prev, textAreaError: !(value.length >= 3) }));
+        setState((prev) => ({ ...prev, textAreaError: value.length < 3 }));
         break;
     }
   };
