@@ -1,5 +1,5 @@
 import Input from "componets/input/Input";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import contactmeImg from "images/contactme.png";
 import Image from "next/image";
 import TextArea from "componets/textarea/TextArea";
@@ -60,12 +60,37 @@ const ContactMe = () => {
   const handleMouseEnter = () => {
     if (isEverythingOkay) {
       setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
-      console.log("submit clicked");
     } else {
       setSubmitPosition((prev) => ({
         positionX: prev.state ? "5rem" : "-5rem",
         state: !prev.state,
       }));
+    }
+  };
+
+  const postData = useCallback(async () => {
+    try {
+      const jsonData = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}contact`,
+        {
+          method: "POST",
+          body: JSON.stringify(inputState),
+          headers: {
+            "Content-Type": "Application/json",
+          },
+        }
+      );
+      const data = await jsonData.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const onSubmit = () => {
+    if (isEverythingOkay) {
+      postData();
+      console.log("submit clicked");
     }
   };
 
@@ -123,6 +148,7 @@ const ContactMe = () => {
           <div className={styles.submitWrapper}>
             <button
               style={{ transform: `translateX(${submitPosition.positionX})` }}
+              onClick={() => onSubmit()}
               onMouseEnter={() => handleMouseEnter()}
             >
               Submit
