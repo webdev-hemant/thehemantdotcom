@@ -41,13 +41,31 @@ const ValidateForm = (inputState: IinputState) => {
     }
   };
 
+  const resetErrors = (value: string) => {
+    switch (value) {
+      case "name":
+        setState((prev) => ({ ...prev, nameError: false }));
+        break;
+      case "email":
+        setState((prev) => ({ ...prev, emailError: false }));
+        break;
+      case "subject":
+        setState((prev) => ({ ...prev, subjectError: false }));
+        break;
+      case "textArea":
+        setState((prev) => ({ ...prev, textAreaError: false }));
+        break;
+    }
+  };
+
   const isOkay: boolean =
     Object.values(inputState).every((v) => !!v) &&
     !Object.values(state).some((v) => v);
 
-  return [state, validate, isOkay] as [
+  return [state, validate, resetErrors, isOkay] as [
     Istate,
     ({ name, value }: IvalidateForm) => void,
+    (value: string) => void,
     boolean
   ];
 };

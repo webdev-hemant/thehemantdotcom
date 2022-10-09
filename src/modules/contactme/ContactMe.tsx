@@ -30,10 +30,8 @@ const ContactMe = () => {
     positionX: "0",
   });
 
-  const [validateHook, setValidateHook, isEverythingOkay] =
+  const [validateHook, setValidateHook, resetError, isEverythingOkay] =
     ValidateForm(inputState);
-
-  // console.log(isEverythingOkay);
 
   const handleOnchange = (
     event:
@@ -41,13 +39,22 @@ const ContactMe = () => {
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     const { name, value } = event.target;
-    setValidateHook({ name, value });
+    resetError(name);
     setInputState((prev) => ({
       ...prev,
       [name]: value,
     }));
     isEverythingOkay &&
       setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
+  };
+
+  const handleBlur = (
+    event:
+      | React.FocusEvent<HTMLInputElement, Element>
+      | React.FocusEvent<HTMLTextAreaElement, Element>
+  ) => {
+    const { name, value } = event.target;
+    setValidateHook({ name, value });
   };
 
   const handleMouseEnter = () => {
@@ -75,6 +82,7 @@ const ContactMe = () => {
             placeholder="Name"
             inputStyleName={styles.inputName}
             isError={validateHook.nameError}
+            onBlur={handleBlur}
           />
           <Input
             type="text"
@@ -84,6 +92,7 @@ const ContactMe = () => {
             placeholder="Email"
             inputStyleName={styles.inputEmail}
             isError={validateHook.emailError}
+            onBlur={handleBlur}
           />
           <Input
             type="text"
@@ -93,6 +102,7 @@ const ContactMe = () => {
             placeholder="Subject / App name"
             inputStyleName={styles.inputSubject}
             isError={validateHook.subjectError}
+            onBlur={handleBlur}
           />
           <TextArea
             onChange={handleOnchange}
@@ -101,6 +111,7 @@ const ContactMe = () => {
             placeholder="Enter description"
             textAreaStyleName={styles.inputSubject}
             isError={validateHook.textAreaError}
+            onBlur={handleBlur}
           />
           <div className={styles.submitWrapper}>
             <button
