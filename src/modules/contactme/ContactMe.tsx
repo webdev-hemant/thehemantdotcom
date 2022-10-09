@@ -76,7 +76,7 @@ const ContactMe = () => {
           method: "POST",
           body: JSON.stringify(inputState),
           headers: {
-            "Content-Type": "Application/json",
+            "Content-Type": "application/json",
           },
         }
       );
