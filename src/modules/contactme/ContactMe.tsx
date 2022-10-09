@@ -80,8 +80,10 @@ const ContactMe = () => {
             value={inputState.name}
             name="name"
             placeholder="Name"
-            inputStyleName={styles.inputName}
+            inputStyleName={styles.inputCommon}
+            divStyle={{ marginBottom: "1rem" }}
             isError={validateHook.nameError}
+            errorMessage="*Please atleast three characters"
             onBlur={handleBlur}
           />
           <Input
@@ -90,7 +92,8 @@ const ContactMe = () => {
             value={inputState.email}
             name="email"
             placeholder="Email"
-            inputStyleName={styles.inputEmail}
+            inputStyleName={styles.inputCommon}
+            divStyle={{ marginBottom: "1rem" }}
             isError={validateHook.emailError}
             onBlur={handleBlur}
           />
@@ -100,8 +103,10 @@ const ContactMe = () => {
             value={inputState.subject}
             name="subject"
             placeholder="Subject / App name"
-            inputStyleName={styles.inputSubject}
+            inputStyleName={styles.inputCommon}
+            divStyle={{ marginBottom: "1rem" }}
             isError={validateHook.subjectError}
+            errorMessage="*Please atleast three characters"
             onBlur={handleBlur}
           />
           <TextArea
@@ -109,8 +114,10 @@ const ContactMe = () => {
             value={inputState.textArea}
             name="textArea"
             placeholder="Enter description"
-            textAreaStyleName={styles.inputSubject}
+            textAreaStyleName={styles.inputCommon}
+            divStyle={{ marginBottom: "1rem" }}
             isError={validateHook.textAreaError}
+            errorMessage="*Please atleast three characters"
             onBlur={handleBlur}
           />
           <div className={styles.submitWrapper}>

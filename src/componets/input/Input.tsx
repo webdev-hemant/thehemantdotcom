@@ -44,7 +44,7 @@ const Input = (props: Iprops) => {
     divStyle = {},
     label = "",
     isError = false,
-    errorMessage = "*Please enter valid value",
+    errorMessage = `*Please enter valid ${name}`,
     divStyleName = "",
     inputStyleName = "",
     ...rest

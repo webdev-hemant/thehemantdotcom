@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./textarea.module.scss";
 
 interface Iprops {
@@ -40,7 +40,7 @@ const TextArea = (props: Iprops) => {
     divStyle = {},
     label = "",
     isError = false,
-    errorMessage = "*Please enter valid value",
+    errorMessage = `*Please enter valid ${name}`,
     divStyleName = "",
     textAreaStyleName = "",
     ...rest
