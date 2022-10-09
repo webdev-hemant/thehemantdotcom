@@ -1,9 +1,9 @@
 import Input from "componets/input/Input";
 import { useState } from "react";
 import contactmeImg from "images/contactme.png";
-import styles from "./contactme.module.scss";
 import Image from "next/image";
 import TextArea from "componets/textarea/TextArea";
+import styles from "./contactme.module.scss";
 
 interface IinputState {
   name: string;
