@@ -71,7 +71,7 @@ const ContactMe = () => {
   const postData = useCallback(async () => {
     try {
       const jsonData = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}contact`,
+        `https://auth-backend-silk.vercel.app/contact`,
         {
           method: "POST",
           body: JSON.stringify(inputState),
