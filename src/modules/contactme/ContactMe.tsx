@@ -3,9 +3,10 @@ import { useState } from "react";
 import contactmeImg from "images/contactme.png";
 import Image from "next/image";
 import TextArea from "componets/textarea/TextArea";
+import ValidateForm from "./ValidateForm";
 import styles from "./contactme.module.scss";
 
-interface IinputState {
+export interface IinputState {
   name: string;
   email: string;
   subject: string;
@@ -29,12 +30,18 @@ const ContactMe = () => {
     positionX: "0",
   });
 
+  const [validateHook, setValidateHook, isEverythingOkay] =
+    ValidateForm(inputState);
+
+  // console.log(isEverythingOkay);
+
   const handleOnchange = (
     event:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     const { name, value } = event.target;
+    setValidateHook({ name, value });
     setInputState((prev) => ({
       ...prev,
       [name]: value,
