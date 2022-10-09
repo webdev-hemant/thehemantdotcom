@@ -74,7 +74,12 @@ const ContactMe = () => {
         `https://auth-backend-silk.vercel.app/contact`,
         {
           method: "POST",
-          body: JSON.stringify(inputState),
+          body: JSON.stringify({
+            name: "hemant",
+            email: "testing",
+            subject: "anything",
+            textArea: "ksdfjksj",
+          }),
           headers: {
             "Content-Type": "application/json",
           },
