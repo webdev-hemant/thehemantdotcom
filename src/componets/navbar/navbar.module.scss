@@ -75,6 +75,9 @@
       cursor: pointer;
     }
     .codeImage {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
       position: relative;
       width: 3rem;
       height: 100%;
