@@ -5,6 +5,7 @@ import Image from "next/image";
 import TextArea from "componets/textarea/TextArea";
 import { IinputState, InputFields, ReducerContact } from "./ReducerContact";
 import styles from "./contactme.module.scss";
+import { postDataContact } from "./contactApi";
 
 interface IsubmitPosition {
   state: boolean;
@@ -77,9 +78,17 @@ const ContactMe = () => {
     }
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (inputReducerState.isEverythingOkay) {
-      console.log(inputReducerState);
+      const { name, email, subject, textArea } = inputReducerState;
+      const apiData = await postDataContact({
+        name: name.value,
+        email: email.value,
+        subject: subject.value,
+        textArea: textArea.value,
+      });
+      console.log({ inputReducerState });
+      console.log({ apiData });
       dispatch({ type: InputFields.RESETALL, payload: "" });
     } else {
       setSubmitPosition((prev) => ({
