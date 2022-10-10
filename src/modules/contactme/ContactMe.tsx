@@ -1,5 +1,5 @@
 import Input from "componets/input/Input";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import contactmeImg from "images/contactme.png";
 import Image from "next/image";
 import TextArea from "componets/textarea/TextArea";
@@ -68,37 +68,7 @@ const ContactMe = () => {
     }
   };
 
-  const postData = useCallback(async () => {
-    try {
-      const jsonData = await fetch(
-        `https://auth-backend-silk.vercel.app/contact`,
-        {
-          method: "POST",
-          body: JSON.stringify({
-            name: inputState.name,
-            email: inputState.email,
-            subject: inputState.subject,
-            textArea: inputState.textArea,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await jsonData.json();
-      console.log(JSON.stringify(inputState));
-      console.log("api response:", data);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
-  const onSubmit = () => {
-    if (isEverythingOkay) {
-      postData();
-      console.log("submit clicked");
-    }
-  };
+  const onSubmit = () => {};
 
   return (
     <div className={styles.contactmeWrapper}>
