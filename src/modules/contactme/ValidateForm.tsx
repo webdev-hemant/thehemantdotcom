@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IinputState } from "./ContactMe";
+import { IinputState } from "./ReducerContact";
 
 interface Istate {
   nameError: boolean;
