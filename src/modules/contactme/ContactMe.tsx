@@ -75,10 +75,10 @@ const ContactMe = () => {
         {
           method: "POST",
           body: JSON.stringify({
-            name: "hemant",
-            email: "testing",
-            subject: "anything",
-            textArea: "ksdfjksj",
+            name: inputState.name,
+            email: inputState.email,
+            subject: inputState.subject,
+            textArea: inputState.textArea,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -86,6 +86,7 @@ const ContactMe = () => {
         }
       );
       const data = await jsonData.json();
+      console.log(JSON.stringify(inputState));
       console.log("api response:", data);
     } catch (error) {
       console.log(error);
@@ -94,7 +95,6 @@ const ContactMe = () => {
 
   const onSubmit = () => {
     if (isEverythingOkay) {
-      console.log(JSON.stringify(inputState));
       postData();
       console.log("submit clicked");
     }
