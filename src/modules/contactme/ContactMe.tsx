@@ -11,7 +11,7 @@ interface IsubmitPosition {
   positionX: string;
 }
 
-const initialState: IinputState = {
+export const initialState: IinputState = {
   name: { value: "", isError: false },
   email: { value: "", isError: false },
   subject: { value: "", isError: false },
@@ -37,8 +37,9 @@ const ContactMe = () => {
   ) => {
     const { name, value } = event.target;
     dispatch({ type: name as InputFields, payload: value });
-    // isEverythingOkay &&
-    //   setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
+    dispatch({ type: InputFields.ISEVERYTHINGOKAY, payload: "" });
+    inputReducerState.isEverythingOkay &&
+      setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
   };
 
   const handleBlur = (
@@ -62,21 +63,30 @@ const ContactMe = () => {
         dispatch({ type: InputFields.VALIDATETEXTAREA, payload: value });
         break;
     }
+    dispatch({ type: InputFields.ISEVERYTHINGOKAY, payload: "" });
   };
 
   const handleMouseEnter = () => {
-    // if (isEverythingOkay) {
-    //   setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
-    // } else {
-    // setSubmitPosition((prev) => ({
-    //   positionX: prev.state ? "5rem" : "-5rem",
-    //   state: !prev.state,
-    // }));
-    // }
+    if (inputReducerState.isEverythingOkay) {
+      setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
+    } else {
+      setSubmitPosition((prev) => ({
+        positionX: prev.state ? "5rem" : "-5rem",
+        state: !prev.state,
+      }));
+    }
   };
 
   const onSubmit = () => {
-    console.log(inputReducerState);
+    if (inputReducerState.isEverythingOkay) {
+      console.log(inputReducerState);
+      dispatch({ type: InputFields.RESETALL, payload: "" });
+    } else {
+      setSubmitPosition((prev) => ({
+        positionX: prev.state ? "5rem" : "-5rem",
+        state: !prev.state,
+      }));
+    }
   };
 
   return (

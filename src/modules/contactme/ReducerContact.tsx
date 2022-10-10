@@ -1,3 +1,5 @@
+import { initialState } from "./ContactMe";
+
 export interface IinputState {
   name: { value: string; isError: boolean };
   email: { value: string; isError: boolean };
@@ -8,14 +10,15 @@ export interface IinputState {
 
 export enum InputFields {
   NAME = "name",
-  VALIDATENAME = "validateName",
   EMAIL = "email",
-  VALIDATEEMAIL = "validateEmail",
   SUBJECT = "subject",
-  VALIDATESUBJECT = "validateSubject",
   TEXTAREA = "textArea",
+  VALIDATENAME = "validateName",
+  VALIDATEEMAIL = "validateEmail",
+  VALIDATESUBJECT = "validateSubject",
   VALIDATETEXTAREA = "validateTextArea",
   ISEVERYTHINGOKAY = "isEverythingOkay",
+  RESETALL = "resetAll",
 }
 
 interface IinputAction {
@@ -25,19 +28,26 @@ interface IinputAction {
 
 export const ReducerContact = (state: IinputState, action: IinputAction) => {
   const { type, payload } = action;
+  const { isEverythingOkay, ...restState } = state;
 
   switch (type) {
     case InputFields.NAME:
       return { ...state, name: { ...state.name, value: payload } };
+
+    case InputFields.EMAIL:
+      return { ...state, email: { ...state.email, value: payload } };
+
+    case InputFields.SUBJECT:
+      return { ...state, subject: { ...state.subject, value: payload } };
+
+    case InputFields.TEXTAREA:
+      return { ...state, textArea: { ...state.textArea, value: payload } };
 
     case InputFields.VALIDATENAME:
       return {
         ...state,
         name: { ...state.name, isError: payload.length < 3 },
       };
-
-    case InputFields.EMAIL:
-      return { ...state, email: { ...state.email, value: payload } };
 
     case InputFields.VALIDATEEMAIL:
       return {
@@ -48,17 +58,11 @@ export const ReducerContact = (state: IinputState, action: IinputAction) => {
         },
       };
 
-    case InputFields.SUBJECT:
-      return { ...state, subject: { ...state.subject, value: payload } };
-
     case InputFields.VALIDATESUBJECT:
       return {
         ...state,
         subject: { ...state.subject, isError: payload.length < 3 },
       };
-
-    case InputFields.TEXTAREA:
-      return { ...state, textArea: { ...state.textArea, value: payload } };
 
     case InputFields.VALIDATETEXTAREA:
       return {
@@ -69,7 +73,19 @@ export const ReducerContact = (state: IinputState, action: IinputAction) => {
         },
       };
     case InputFields.ISEVERYTHINGOKAY:
-      return state;
+      const valuesNotEmty = Object.entries(restState)
+        .map((item) => item[1].value)
+        .every((v) => v);
+
+      const noErrors = Object.entries(restState)
+        .map((item) => item[1].isError)
+        .every((v) => !v);
+
+      return { ...state, isEverythingOkay: valuesNotEmty && noErrors };
+
+    case InputFields.RESETALL:
+      return initialState;
+
     default:
       return state;
   }
