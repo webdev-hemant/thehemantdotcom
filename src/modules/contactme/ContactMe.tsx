@@ -12,10 +12,10 @@ interface IsubmitPosition {
 }
 
 const initialState: IinputState = {
-  name: "",
-  email: "",
-  subject: "",
-  textArea: "",
+  name: { value: "", isError: false },
+  email: { value: "", isError: false },
+  subject: { value: "", isError: false },
+  textArea: { value: "", isError: false },
 };
 
 const ContactMe = () => {
@@ -72,46 +72,46 @@ const ContactMe = () => {
           <Input
             type="text"
             onChange={handleOnchange}
-            value={inputReducerState.name}
+            value={inputReducerState.name.value}
             name="name"
             placeholder="Name"
             inputStyleName={styles.inputCommon}
             divStyle={{ marginBottom: "1rem" }}
-            // isError={validateHook.nameError}
+            isError={inputReducerState.name.isError}
             errorMessage="*Please atleast three characters"
             // onBlur={handleBlur}
           />
           <Input
             type="text"
             onChange={handleOnchange}
-            value={inputReducerState.email}
+            value={inputReducerState.email.value}
             name="email"
             placeholder="Email"
             inputStyleName={styles.inputCommon}
             divStyle={{ marginBottom: "1rem" }}
-            // isError={validateHook.emailError}
+            isError={inputReducerState.email.isError}
             // onBlur={handleBlur}
           />
           <Input
             type="text"
             onChange={handleOnchange}
-            value={inputReducerState.subject}
+            value={inputReducerState.subject.value}
             name="subject"
             placeholder="Subject / App name"
             inputStyleName={styles.inputCommon}
             divStyle={{ marginBottom: "1rem" }}
-            // isError={validateHook.subjectError}
+            isError={inputReducerState.subject.isError}
             errorMessage="*Please atleast three characters"
             // onBlur={handleBlur}
           />
           <TextArea
             onChange={handleOnchange}
-            value={inputReducerState.textArea}
+            value={inputReducerState.textArea.value}
             name="textArea"
             placeholder="Enter description"
             textAreaStyleName={styles.inputCommon}
             divStyle={{ marginBottom: "1rem" }}
-            // isError={validateHook.textAreaError}
+            isError={inputReducerState.textArea.isError}
             errorMessage="*Please atleast three characters"
             // onBlur={handleBlur}
           />

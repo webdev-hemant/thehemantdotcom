@@ -1,8 +1,8 @@
 export interface IinputState {
-  name: string;
-  email: string;
-  subject: string;
-  textArea: string;
+  name: { value: string; isError: boolean };
+  email: { value: string; isError: boolean };
+  subject: { value: string; isError: boolean };
+  textArea: { value: string; isError: boolean };
 }
 
 export enum InputFields {
@@ -22,13 +22,13 @@ export const ReducerContact = (state: IinputState, action: IinputAction) => {
 
   switch (type) {
     case InputFields.NAME:
-      return { ...state, [InputFields.NAME]: payload };
+      return { ...state, name: { ...state.name, value: payload } };
     case InputFields.EMAIL:
-      return { ...state, [InputFields.EMAIL]: payload };
+      return { ...state, email: { ...state.email, value: payload } };
     case InputFields.SUBJECT:
-      return { ...state, [InputFields.SUBJECT]: payload };
+      return { ...state, subject: { ...state.subject, value: payload } };
     case InputFields.TEXTAREA:
-      return { ...state, [InputFields.TEXTAREA]: payload };
+      return { ...state, textArea: { ...state.textArea, value: payload } };
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { IinputState } from "./ContactMe";
+import { IinputState } from "./ReducerContact";
 
 export const postDataContact = async (inputState: IinputState) => {
   try {
