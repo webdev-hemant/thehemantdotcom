@@ -16,6 +16,7 @@ const initialState: IinputState = {
   email: { value: "", isError: false },
   subject: { value: "", isError: false },
   textArea: { value: "", isError: false },
+  isEverythingOkay: false,
 };
 
 const ContactMe = () => {
@@ -40,14 +41,28 @@ const ContactMe = () => {
     //   setSubmitPosition((prev) => ({ ...prev, positionX: "0" }));
   };
 
-  // const handleBlur = (
-  //   event:
-  //     | React.FocusEvent<HTMLInputElement, Element>
-  //     | React.FocusEvent<HTMLTextAreaElement, Element>
-  // ) => {
-  //   const { name, value } = event.target;
-  //   setValidateHook({ name, value });
-  // };
+  const handleBlur = (
+    event:
+      | React.FocusEvent<HTMLInputElement, Element>
+      | React.FocusEvent<HTMLTextAreaElement, Element>
+  ) => {
+    const { name, value } = event.target;
+
+    switch (name) {
+      case "name":
+        dispatch({ type: InputFields.VALIDATENAME, payload: value });
+        break;
+      case "email":
+        dispatch({ type: InputFields.VALIDATEEMAIL, payload: value });
+        break;
+      case "subject":
+        dispatch({ type: InputFields.VALIDATESUBJECT, payload: value });
+        break;
+      case "textArea":
+        dispatch({ type: InputFields.VALIDATETEXTAREA, payload: value });
+        break;
+    }
+  };
 
   const handleMouseEnter = () => {
     // if (isEverythingOkay) {
@@ -79,7 +94,7 @@ const ContactMe = () => {
             divStyle={{ marginBottom: "1rem" }}
             isError={inputReducerState.name.isError}
             errorMessage="*Please atleast three characters"
-            // onBlur={handleBlur}
+            onBlur={handleBlur}
           />
           <Input
             type="text"
@@ -90,7 +105,7 @@ const ContactMe = () => {
             inputStyleName={styles.inputCommon}
             divStyle={{ marginBottom: "1rem" }}
             isError={inputReducerState.email.isError}
-            // onBlur={handleBlur}
+            onBlur={handleBlur}
           />
           <Input
             type="text"
@@ -102,7 +117,7 @@ const ContactMe = () => {
             divStyle={{ marginBottom: "1rem" }}
             isError={inputReducerState.subject.isError}
             errorMessage="*Please atleast three characters"
-            // onBlur={handleBlur}
+            onBlur={handleBlur}
           />
           <TextArea
             onChange={handleOnchange}
@@ -113,7 +128,7 @@ const ContactMe = () => {
             divStyle={{ marginBottom: "1rem" }}
             isError={inputReducerState.textArea.isError}
             errorMessage="*Please atleast three characters"
-            // onBlur={handleBlur}
+            onBlur={handleBlur}
           />
           <div className={styles.submitWrapper}>
             <button
