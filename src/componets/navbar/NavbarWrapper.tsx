@@ -33,15 +33,14 @@ const NavbarWrapper = ({ children }: Iprops) => {
               alt="javascript"
             />
           </div>
-          <div onClick={() => router.push("/")} className={styles.codeImage}>
+          {/* <div onClick={() => router.push("/")} className={styles.codeImage}>
             <Image
               src={binarycodeimage}
               layout="fill"
               objectFit="contain"
               alt=""
             />
-            {/* <Image src={codeImage} layout="fill" objectFit="contain" alt="" /> */}
-          </div>
+          </div> */}
           <div onClick={() => setIsOpen(true)} className={styles.hamIcon}>
             <Image src={hamburger} width={24} height={24} alt="" />
           </div>
