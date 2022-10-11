@@ -13,7 +13,7 @@ export const postDataContact = async ({
 }: IpostData) => {
   try {
     const jsonData = await fetch(
-      `https://auth-backend-silk.vercel.app/contact`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}contact`,
       {
         method: "POST",
         body: JSON.stringify({
