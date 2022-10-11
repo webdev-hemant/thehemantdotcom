@@ -6,6 +6,7 @@ import TextArea from "componets/textarea/TextArea";
 import { IinputState, InputFields, ReducerContact } from "./ReducerContact";
 import styles from "./contactme.module.scss";
 import { postDataContact } from "./contactApi";
+import { toast, ToastContainer } from "react-toastify";
 
 interface IsubmitPosition {
   state: boolean;
@@ -30,6 +31,8 @@ const ContactMe = () => {
     state: false,
     positionX: "0",
   });
+
+  const [isSubmitDissabled, setIsSubmitPosition] = useState<boolean>(false);
 
   const handleOnchange = (
     event:
@@ -80,6 +83,8 @@ const ContactMe = () => {
 
   const onSubmit = async () => {
     if (inputReducerState.isEverythingOkay) {
+      setIsSubmitPosition(true);
+      dispatch({ type: InputFields.RESETALL, payload: "" });
       const { name, email, subject, textArea } = inputReducerState;
       const apiData = await postDataContact({
         name: name.value,
@@ -87,9 +92,15 @@ const ContactMe = () => {
         subject: subject.value,
         textArea: textArea.value,
       });
-      console.log({ inputReducerState });
-      console.log({ apiData });
-      dispatch({ type: InputFields.RESETALL, payload: "" });
+      if (apiData.success)
+        toast.success("Message has been Successfully sent!", {
+          position: "bottom-right",
+        });
+      if (apiData.error)
+        toast.error("Error occured while submitting form", {
+          position: "bottom-right",
+        });
+      setIsSubmitPosition(false);
     } else {
       setSubmitPosition((prev) => ({
         positionX: prev.state ? "5rem" : "-5rem",
@@ -154,6 +165,7 @@ const ContactMe = () => {
               style={{ transform: `translateX(${submitPosition.positionX})` }}
               onClick={() => onSubmit()}
               onMouseEnter={() => handleMouseEnter()}
+              disabled={isSubmitDissabled}
             >
               Submit
             </button>
@@ -163,6 +175,7 @@ const ContactMe = () => {
           <Image src={contactmeImg} layout="fill" objectFit="contain" alt="" />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
